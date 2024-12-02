@@ -32,8 +32,10 @@ const Home = () => {
       return () => {
         typed.destroy(); // Cleanup Typed.js instance
       };
+    } else {
+      console.error('typedElement is not attached to any DOM element.');
     }
-  }, []);
+  }, [typedElement]);
 
   // Simulate loading display before home page loads
   useEffect(() => {
@@ -88,7 +90,7 @@ const Home = () => {
               ></p>
               {/* Updated Button */}
               <Link
-                to={'/contact'}
+                to={'/portfolio'}
                 className="btn mb-[30px]"
                 style={{
                   backgroundColor: '#79b4af', // Button background
