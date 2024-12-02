@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import Typed from 'typed.js'; // Import Typed.js
 import WomanImg from '../img/home/woman.png';
-import BackgroundImg from '../img/background.png'; 
+import BackgroundImg from '../img/background.png';
 import Logo from '../img/logo.png';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -8,28 +9,40 @@ import { transition1 } from '../transitions.jsx';
 import { CursorContext } from '../context/CursorContext';
 
 const Home = () => {
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+  const typedElement = useRef(null); // Reference for the Typed.js element
 
-  //  the paralax strolling effect  
+  // Initialize Typed.js effect
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      document.body.style.backgroundPosition = `center ${-scrollY * 0.5}px`; // Parallax effect
-    };
+    if (typedElement.current) {
+      const typed = new Typed(typedElement.current, {
+        strings: [
+          "I'm a Brand Strategist",
+          "I'm a Content Creator",
+          "I'm a Digital Marketer",
+          "I'm a Designer",
+        ],
+        typeSpeed: 70, // Typing speed
+        backSpeed: 40, // Backspacing speed
+        loop: true, // Repeat the typing loop
+        cursorChar: '|', // Customize cursor character
+      });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+      return () => {
+        typed.destroy(); // Cleanup Typed.js instance
+      };
+    }
   }, []);
 
-  // Simulate the loading display before my home page loads
+  // Simulate loading display before home page loads
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
-    // Show loading screen with my logo
+    // Show loading screen with logo
     return (
       <div
         className="h-screen w-screen bg-cover bg-center flex items-center justify-center"
@@ -37,7 +50,7 @@ const Home = () => {
           backgroundImage: `url(${BackgroundImg})`,
         }}
       >
-        <img src={Logo} alt="Logo" className="w-[150px] h-[150px] animate-bounce" /> {/* Larger logo?*/}
+        <img src={Logo} alt="Logo" className="w-[150px] h-[150px] animate-bounce" />
       </div>
     );
   }
@@ -50,11 +63,11 @@ const Home = () => {
       transition={transition1}
       className="section bg-cover bg-center"
       style={{
-        backgroundImage: `url(${BackgroundImg})`, // does this keep background consistant?
+        backgroundImage: `url(${BackgroundImg})`,
       }}
     >
       <div className="container mx-auto h-full relative">
-        {/* Text & Image Wrapper here? */}
+        {/* Text & Image Wrapper */}
         <div className="flex flex-col justify-center">
           {/* Text */}
           <motion.div
@@ -66,16 +79,33 @@ const Home = () => {
             className="w-full pt-36 pb-14 lg:pt-0 lg:pb-0 lg:w-auto z-10 lg:absolute flex flex-col 
             justify-center items-center lg:items-start"
           >
-           <h1 className="h1 font-hemis text-[#345363]">Emme Drew</h1>
-            <p className="text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-12 text-[#79b4af]">
-              Vancouver, Canada
-            </p>
-            <Link to={'/contact'} className="btn mb-[30px]">
-              Hire Me
-            </Link>
+            <div className="text-center lg:text-left lg:pl-[50px]">
+              <h1 className="h1 font-hemis text-[#345363]">Emme Drew</h1>
+              {/* Typed.js Effect */}
+              <p
+                className="text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-12 text-[#345363] inline-block font-primary"
+                ref={typedElement} // Attach Typed.js to this element
+              ></p>
+              {/* Updated Button */}
+              <Link
+                to={'/contact'}
+                className="btn mb-[30px]"
+                style={{
+                  backgroundColor: '#79b4af', // Button background
+                  color: '#345363', // Button text color
+                  padding: '10px 20px', // Button padding
+                  borderRadius: '5px', // Rounded corners
+                  fontWeight: 'bold', // Bold text
+                  textAlign: 'center', // Center text
+                }}
+              >
+                My Latest Work!
+              </Link>
+            </div>
           </motion.div>
-          {/* */}
-          <div className="flex justify-end max-h-96 lg:max-h-max">
+
+          {/* Image */}
+          <div className="flex justify-end max-h-96 lg:max-h-max relative">
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
@@ -84,12 +114,13 @@ const Home = () => {
               onMouseEnter={mouseEnterHandler}
               onMouseLeave={mouseLeaveHandler}
               className="relative lg:-right-40 overflow-hidden"
+              style={{ marginTop: '-200px' }} // Moves the image up slightly
             >
               <motion.img
                 whileHover={{ scale: 1.1 }}
                 transition={transition1}
                 src={WomanImg}
-                alt="Potrait"
+                alt="Portrait"
                 className="w-auto h-auto"
               />
             </motion.div>

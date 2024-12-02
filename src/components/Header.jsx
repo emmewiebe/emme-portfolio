@@ -18,7 +18,7 @@ const Header = () => {
         </Link>
 
         {/* Navigation: Hidden on mobile, visible on desktop */}
-        <nav className="hidden lg:flex gap-x-12 font-bold text-lg">
+        <nav className="hidden lg:flex gap-x-12 font-primary text-lg">
           <Link
             to="/"
             className="text-[#333] hover:text-primary transition-colors duration-300"

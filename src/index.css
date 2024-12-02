@@ -24,6 +24,14 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Defante';
+  src: url('./src/fonts/Defante.ttc') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .h1 {
   @apply text-[54px] lg:text-[108px] font-hemis font-bold capitalize leading-[120%] tracking-[-0.05em] mb-2;
 }
@@ -33,3 +41,4 @@ body {
   margin: 0;
  
 }
+

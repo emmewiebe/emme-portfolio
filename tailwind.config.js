@@ -12,9 +12,10 @@ export default {
         accent: '#EEF7F9',  // Custom accent color
       },
       fontFamily: {
-        primary: ['Playfair Display', 'serif'],
+        primary: ['Defante', 'sans-serif'], // Add Defante font as primary
+        headings: ['Playfair Display', 'serif'], // Use for headings
         secondary: ['Mulish', 'sans-serif'],
-        hemis: ['Hemis', 'sans-serif'], // Correctly add the Hemis font
+        hemis: ['Hemis', 'sans-serif'],
       },
     },
   },
