@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import WomanImg from '../img/home/woman.png';
-import BackgroundImg from '../img/background.png'; // Background image
-import Logo from '../img/logo.png'; // Logo
+import BackgroundImg from '../img/background.png'; 
+import Logo from '../img/logo.png';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { transition1 } from '../transitions.jsx';
 import { CursorContext } from '../context/CursorContext';
 
 const Home = () => {
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true); 
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
 
-  // Handle parallax scrolling
+  //  the paralax strolling effect  
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -22,14 +22,14 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Simulate loading delay
+  // Simulate the loading display before my home page loads
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
-    // Show loading screen
+    // Show loading screen with my logo
     return (
       <div
         className="h-screen w-screen bg-cover bg-center flex items-center justify-center"
@@ -37,7 +37,7 @@ const Home = () => {
           backgroundImage: `url(${BackgroundImg})`,
         }}
       >
-        <img src={Logo} alt="Logo" className="w-[150px] h-[150px] animate-bounce" /> {/* Larger logo */}
+        <img src={Logo} alt="Logo" className="w-[150px] h-[150px] animate-bounce" /> {/* Larger logo?*/}
       </div>
     );
   }
@@ -50,11 +50,11 @@ const Home = () => {
       transition={transition1}
       className="section bg-cover bg-center"
       style={{
-        backgroundImage: `url(${BackgroundImg})`, // Keep background consistent
+        backgroundImage: `url(${BackgroundImg})`, // does this keep background consistant?
       }}
     >
       <div className="container mx-auto h-full relative">
-        {/* Text & Image Wrapper */}
+        {/* Text & Image Wrapper here? */}
         <div className="flex flex-col justify-center">
           {/* Text */}
           <motion.div
@@ -74,7 +74,7 @@ const Home = () => {
               Hire Me
             </Link>
           </motion.div>
-          {/* Image */}
+          {/* */}
           <div className="flex justify-end max-h-96 lg:max-h-max">
             <motion.div
               initial={{ scale: 0.9 }}
@@ -89,7 +89,7 @@ const Home = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={transition1}
                 src={WomanImg}
-                alt="Portrait of a woman"
+                alt="Potrait"
                 className="w-auto h-auto"
               />
             </motion.div>
