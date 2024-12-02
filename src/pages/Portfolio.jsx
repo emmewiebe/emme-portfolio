@@ -1,97 +1,92 @@
 import React from 'react';
-import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import { transition1 } from '../transitions';
+import { Link } from 'react-router-dom';
 
-// Example portfolio data  - switch this up with my real stuff
 const portfolioItems = [
   {
     id: 1,
-    title: '378 WH',
+    title: 'Havenmade Essentials Branding',
+    description:
+      'A branding project for Havenmade Essentials, focusing on clean, natural aesthetics that align with their organic product offerings.',
     image: '/img/portfolio/1.png',
     link: '/project-1',
   },
-  { 
+  {
     id: 2,
-    title: 'Branding App',
+    title: 'More Cookies Branding',
+    description:
+      'Fun and quirky branding for More Cookies, a business specializing in customizable cookies for every occasion.',
     image: '/img/portfolio/2.png',
     link: '/project-2',
   },
   {
     id: 3,
-    title: 'Coffee Shop Branding',
+    title: 'Cove Coffee Shop Branding',
+    description:
+      'Sleek and modern branding for Cove Coffee Shop, aiming to attract a youthful, energetic clientele.',
     image: '/img/portfolio/3.png',
     link: '/project-3',
   },
   {
     id: 4,
-    title: 'Cookie business Branding',
+    title: 'TNT Hay Branding',
+    description:
+      'Rustic and bold branding for TNT Hay, a family-run business with a rich agricultural heritage.',
     image: '/img/portfolio/4.png',
     link: '/project-4',
   },
 ];
 
-const PortfolioCarousel = () => {
-  const settings = {
-    dots: true, // Show navigation dots
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2, // Number of slides visible at once
-    slidesToScroll: 1, // Number of slides scrolled at once
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
-
+const Portfolio = () => {
   return (
     <motion.section
       initial={{ opacity: 0, y: '100%' }}
       animate={{ opacity: 1, y: 0 }}
       transition={transition1}
-      className="min-h-screen bg-gray-100 py-12"
+      className="min-h-screen bg-cover bg-center bg-fixed py-12"
+      style={{
+        backgroundImage: `url('/src/img/background.png')`, // Update path to match your project structure
+      }}
     >
       <div className="container mx-auto px-4">
-        <h1 className="h1 text-center mb-8">Portfolio</h1>
-        <Slider {...settings}>
-          {portfolioItems.map((item) => (
-            <div key={item.id} className="px-2">
-              <div className="relative group">
-                {/* Image */}
-                <div className="overflow-hidden rounded-lg">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-64 object-cover transform group-hover:scale-110 transition duration-300"
-                  />
-                </div>
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                  <a
-                    href={item.link}
-                    className="text-white text-lg font-bold bg-primary py-2 px-4 rounded-lg shadow-lg hover:bg-opacity-80"
-                  >
-                    {item.title}
-                  </a>
-                </div>
-              </div>
+        <h1 className="h1 text-center mb-12 text-white">My Latest Work</h1>
+        {portfolioItems.map((item, index) => (
+          <div
+            key={item.id}
+            className={`flex flex-col md:flex-row ${
+              index % 2 === 1 ? 'md:flex-row-reverse' : ''
+            } items-center justify-between gap-8 mb-12`}
+          >
+            {/* Image */}
+            <div className="md:w-1/2 w-full">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-auto rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
+              />
             </div>
-          ))}
-        </Slider>
+
+            {/* Text */}
+            <div className="md:w-1/2 w-full bg-gray-100 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-90 p-6 rounded-lg shadow-lg">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                {item.title}
+              </h2>
+              <p className="text-gray-700 dark:text-gray-400 mb-6">
+                {item.description}
+              </p>
+              <Link
+                to={item.link}
+                className="text-white bg-primary hover:bg-opacity-80 px-6 py-3 rounded-lg shadow-md transition duration-300"
+              >
+                View Project
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     </motion.section>
   );
 };
 
-export default PortfolioCarousel;
+export default Portfolio;
