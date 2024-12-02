@@ -46,44 +46,49 @@ const Portfolio = () => {
       transition={transition1}
       className="min-h-screen bg-cover bg-center bg-fixed py-12"
       style={{
-        backgroundImage: `url('/src/img/background.png')`, // Update path to match your project structure
+        backgroundImage: `url('/src/img/background.png')`, // Ensure path matches your project
       }}
     >
       <div className="container mx-auto px-4">
-        <h1 className="h1 text-center mb-12 text-white">My Latest Work</h1>
-        {portfolioItems.map((item, index) => (
-          <div
-            key={item.id}
-            className={`flex flex-col md:flex-row ${
-              index % 2 === 1 ? 'md:flex-row-reverse' : ''
-            } items-center justify-between gap-8 mb-12`}
-          >
-            {/* Image */}
-            <div className="md:w-1/2 w-full">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-auto rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
-              />
-            </div>
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl font-bold text-white mb-4">My Latest Work</h1>
+          <p className="text-lg text-gray-300">
+            Here’s a showcase of my recent projects, blending creativity and design expertise.
+          </p>
+        </div>
 
-            {/* Text */}
-            <div className="md:w-1/2 w-full bg-gray-100 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-90 p-6 rounded-lg shadow-lg">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                {item.title}
-              </h2>
-              <p className="text-gray-700 dark:text-gray-400 mb-6">
-                {item.description}
-              </p>
-              <Link
-                to={item.link}
-                className="text-white bg-primary hover:bg-opacity-80 px-6 py-3 rounded-lg shadow-md transition duration-300"
-              >
-                View Project
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {portfolioItems.map((item) => (
+            <motion.div
+              key={item.id}
+              className="flex flex-col md:flex-row items-center bg-[#345363] rounded-lg shadow-lg overflow-hidden"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Image */}
+              <Link to={item.link} className="md:w-1/2 w-full">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                />
               </Link>
-            </div>
-          </div>
-        ))}
+
+              {/* Text */}
+              <div className="md:w-1/2 w-full p-6 text-white">
+                <h2 className="text-2xl font-bold mb-4">{item.title}</h2>
+                <p className="text-gray-200 mb-6">{item.description}</p>
+                <Link
+                  to={item.link}
+                  className="inline-block bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition duration-300"
+                >
+                  View Project
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.section>
   );
