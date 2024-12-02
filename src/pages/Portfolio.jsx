@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import { transition1 } from '../transitions';
 
-// Example portfolio data
+// Example portfolio data  - switch this up with my real stuff
 const portfolioItems = [
   {
     id: 1,
@@ -11,21 +11,21 @@ const portfolioItems = [
     image: '/img/portfolio/1.png',
     link: '/project-1',
   },
-  {
+  { 
     id: 2,
-    title: 'Banking App',
+    title: 'Branding App',
     image: '/img/portfolio/2.png',
     link: '/project-2',
   },
   {
     id: 3,
-    title: 'Huy Phan',
+    title: 'Coffee Shop Branding',
     image: '/img/portfolio/3.png',
     link: '/project-3',
   },
   {
     id: 4,
-    title: 'Aceno Branding',
+    title: 'Cookie business Branding',
     image: '/img/portfolio/4.png',
     link: '/project-4',
   },
