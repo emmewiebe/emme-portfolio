@@ -50,7 +50,7 @@ const Home = () => {
           backgroundImage: `url(${BackgroundImg})`,
         }}
       >
-        <img src={Logo} alt="Logo" className="w-[150px] h-[150px] animate-bounce" />
+        <img src={Logo} alt="Logo" className="w-[500px] h-[500px] animate-bounce" />
       </div>
     );
   }
