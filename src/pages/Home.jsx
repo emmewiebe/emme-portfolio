@@ -15,7 +15,7 @@ const Home = () => {
 
   // Initialize Typed.js effect
   useEffect(() => {
-    if (typedElement.current) {
+    if (!loading && typedElement.current) {
       const typed = new Typed(typedElement.current, {
         strings: [
           "I'm a Brand Strategist",
@@ -32,10 +32,8 @@ const Home = () => {
       return () => {
         typed.destroy(); // Cleanup Typed.js instance
       };
-    } else {
-      console.error('typedElement is not attached to any DOM element.');
     }
-  }, [typedElement]);
+  }, [loading]); // Wait for loading state to resolve before initializing Typed.js
 
   // Simulate loading display before home page loads
   useEffect(() => {
@@ -93,12 +91,12 @@ const Home = () => {
                 to={'/portfolio'}
                 className="btn mb-[30px]"
                 style={{
-                  backgroundColor: '#79b4af', // Button background
-                  color: '#345363', // Button text color
-                  padding: '10px 20px', // Button padding
-                  borderRadius: '5px', // Rounded corners
-                  fontWeight: 'bold', // Bold text
-                  textAlign: 'center', // Center text
+                  backgroundColor: '#79b4af', 
+                  color: '#345363', 
+                  padding: '10px 20px', 
+                  borderRadius: '5px', 
+                  fontWeight: 'bold', 
+                  textAlign: 'center', 
                 }}
               >
                 My Latest Work!
@@ -116,7 +114,7 @@ const Home = () => {
               onMouseEnter={mouseEnterHandler}
               onMouseLeave={mouseLeaveHandler}
               className="relative lg:-right-40 overflow-hidden"
-              style={{ marginTop: '-200px' }} // Moves the image up slightly
+              style={{ marginTop: '-200px' }} 
             >
               <motion.img
                 whileHover={{ scale: 1.1 }}
