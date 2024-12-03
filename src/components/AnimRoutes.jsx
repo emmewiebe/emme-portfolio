@@ -7,7 +7,7 @@ import Home from '../pages/Home';
 import About from '../pages/About';
 import Portfolio from '../pages/Portfolio';
 import Contact from '../pages/Contact';
-import Project1 from '../pages/project1';
+import Project1 from '../pages/Project1';
 
 const AnimRoutes = () => {
   const location = useLocation();
