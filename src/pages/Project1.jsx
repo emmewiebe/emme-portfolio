@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import placeholder1 from '../img/about/emme1.jpg';
-import placeholder2 from '../img/about/emme1.jpg';
-import placeholder3 from '../img/about/emme1.jpg';
-import placeholder4 from '../img/about/emme1.jpg';
+import placeholder1 from '../img/about/moodboard.png';
+import placeholder2 from '../img/about/haven.png';
+import placeholder3 from '../img/about/soap.png';
+import placeholder4 from '../img/about/guideline.png';
 
 const Project1 = () => {
   const { scrollYProgress } = useScroll(); // Track scroll progress

@@ -1,10 +1,10 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import emme1 from '../img/about/emme1.jpg';
+import { motion, useScroll, useTransform } from 'framer-motion'; // Framer Motion for animations
+import emme1 from '../img/about/emme1.jpg'; // About images
 import emme2 from '../img/about/emme2.jpg';
 import emme3 from '../img/about/emme3.jpg';
 import emme4 from '../img/about/emme4.jpg';
-import photoshop from '../img/about/photoshop.png';
+import photoshop from '../img/about/photoshop.png'; // Skill icons
 import illustrator from '../img/about/illustrator.png';
 import figma from '../img/about/figma.png';
 import aftereffects from '../img/about/aftereffects.png';
@@ -12,8 +12,8 @@ import html from '../img/about/html.png';
 import js from '../img/about/js.png';
 
 const About = () => {
-  const { scrollYProgress } = useScroll(); // Track scroll progress
-  const rotation = useTransform(scrollYProgress, [0, 1], [0, 360]); // Rotate full circle as user scrolls
+  const { scrollYProgress } = useScroll(); // Tracks how far down the user has scrolled
+  const rotation = useTransform(scrollYProgress, [0, 1], [0, 360]); // Rotates a circle as you scroll
 
   return (
     <section className="relative bg-white pt-24 lg:pt-32">
@@ -21,7 +21,7 @@ const About = () => {
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
         <motion.div
           style={{
-            rotate: rotation, // Dynamically rotate text
+            rotate: rotation, // Circle rotates as the user scrolls
           }}
           className="w-16 h-16 border-2 border-[#345363] rounded-full flex items-center justify-center relative"
         >
@@ -29,7 +29,7 @@ const About = () => {
             className="absolute text-[10px] font-bold tracking-widest text-[#345363]"
             style={{
               whiteSpace: 'nowrap',
-              transform: 'rotate(-90deg)', // Start text properly aligned
+              transform: 'rotate(-90deg)', // Keeps the text upright as the circle rotates
             }}
           >
             SCROLL DOWN · SCROLL DOWN · SCROLL DOWN ·
@@ -39,15 +39,16 @@ const About = () => {
 
       {/* Header Section */}
       <div className="bg-[#345363] py-16 text-center">
+        {/* Optional title or introduction here */}
       </div>
 
-      {/* Timeline */}
+      {/* Timeline Section */}
       <div className="container mx-auto px-4 lg:px-16 py-12 relative">
-        {/* Vertical line */}
+        {/* Vertical Line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-gray-300 z-10">
           <motion.div
             style={{
-              height: useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
+              height: useTransform(scrollYProgress, [0, 1], ['0%', '100%']), // Line fills as you scroll
             }}
             className="bg-[#345363] w-full absolute top-0"
           ></motion.div>
@@ -55,13 +56,14 @@ const About = () => {
 
         {/* Timeline Items */}
         <div className="flex flex-col gap-16 relative z-20">
-          {/* Item 1 */}
+          {/* Item 1: Intro */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -100 }} // Starts off-screen (to the left)
+            whileInView={{ opacity: 1, x: 0 }} // Slides into view
             transition={{ duration: 0.6 }}
             className="flex items-center lg:justify-end gap-4 lg:gap-8 relative"
           >
+            {/* Image */}
             <div className="w-1/3">
               <img
                 src={emme1}
@@ -69,50 +71,45 @@ const About = () => {
                 className="rounded-lg shadow-lg"
               />
             </div>
+            {/* Text */}
             <div className="w-2/5 text-left lg:ml-8">
               <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
                 Hi, I'm Emme!
               </h2>
               <p className="text-gray-600 text-sm lg:text-base font-defante">
                 I specialize in brand strategy and digital marketing, helping
-                craft brand identities that truly reflect your values and
-                mission. I’m passionate about getting to know my clients,
-                understanding their vision, and turning it into a brand story
-                that feels authentic and impactful.
+                clients create authentic and impactful brand identities.
               </p>
             </div>
           </motion.div>
 
-          {/* Item 2 */}
+          {/* Item 2: Skills */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 100 }} // Starts off-screen (to the right)
+            whileInView={{ opacity: 1, x: 0 }} // Slides into view
             transition={{ duration: 0.6 }}
             className="flex items-center lg:justify-start gap-4 lg:gap-8 relative"
           >
-            {/* Text Section */}
+            {/* Text */}
             <div className="w-2/5 text-right lg:mr-8">
               <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
                 What do I bring to the table?
               </h2>
               <p className="text-gray-600 text-sm lg:text-base font-defante">
-                I specialize in branding and design, with skills in Photoshop,
-                Illustrator, and Figma. My tools extend to motion graphics using
-                Adobe After Effects, allowing me to bring ideas to life with
-                dynamic visuals. Additionally, my knowledge of JavaScript and
-                HTML enables me to collaborate effectively with developers,
-                bridging the gap between design and development to create
-                seamless, impactful projects.
+                Skills in branding, design, and motion graphics using tools like
+                Photoshop, Illustrator, Figma, After Effects, HTML, and
+                JavaScript.
               </p>
             </div>
 
             {/* Icons Grid */}
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              initial={{ opacity: 0 }} // Starts invisible
+              whileInView={{ opacity: 1 }} // Fades in
+              transition={{ duration: 0.6, delay: 0.3 }} // Staggered animation
               className="grid grid-cols-2 md:grid-cols-3 gap-6 items-center justify-center w-1/3 relative lg:ml-8"
             >
+              {/* Skill Icons */}
               <motion.img
                 src={photoshop}
                 alt="Adobe Photoshop"
@@ -164,10 +161,10 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Item 3 */}
+          {/* Item 3: Personal Interests */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -100 }} // Starts off-screen (to the left)
+            whileInView={{ opacity: 1, x: 0 }} // Slides into view
             transition={{ duration: 0.6 }}
             className="flex items-center lg:justify-end gap-4 lg:gap-8 relative"
           >
@@ -180,22 +177,19 @@ const About = () => {
             </div>
             <div className="w-2/5 text-left lg:ml-8">
               <p className="text-gray-600 text-sm lg:text-base font-defante">
-                In my free time, I love traveling, going on hikes, snapping film
-                photos, and stopping to pet every dog I meet.
+                In my free time, I love traveling, hiking, snapping film photos,
+                and petting every dog I meet.
               </p>
             </div>
           </motion.div>
 
-          {/* Item 4 */}
+          {/* Item 4: Closing Image */}
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="flex items-center lg:justify-start gap-4 lg:gap-8 relative"
           >
-            <div className="w-2/5 text-right lg:mr-8">
-            
-            </div>
             <div className="w-1/3">
               <img
                 src={emme4}
