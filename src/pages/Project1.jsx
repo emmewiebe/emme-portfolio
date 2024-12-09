@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion'; // Animations for smooth scrolling effects and page transformation
 import placeholder1 from '../img/about/moodboard.png'; // Placeholder images for the project timeline
-import placeholder2 from '../img/about/haven.png';
-import placeholder3 from '../img/about/soap.png';
-import placeholder4 from '../img/about/guideline.png';
+import placeholder2 from '../img/about/havenmoodboad.png';
+import placeholder3 from '../img/about/soapbars.png';
+import placeholder4 from '../img/about/brandboard.png';
+import mockupImage from '../img/about/havensoapmockup.png'; // New image for the mockups section
 
 const Project1 = () => {
   const { scrollYProgress } = useScroll(); // Keeps track of how far down the page the user has scrolled
@@ -148,6 +149,30 @@ const Project1 = () => {
                 alt="Brand Guidelines"
                 className="rounded-lg shadow-lg"
               />
+            </div>
+          </motion.div>
+
+          {/* Item 5: Mockups */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center lg:justify-end gap-4 lg:gap-8 relative"
+          >
+            <div className="w-1/3">
+              <img
+                src={mockupImage}
+                alt="Soap Mockups"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="w-2/5 text-left lg:ml-8">
+              <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
+                Mockups
+              </h2>
+              <p className="text-gray-600 text-sm lg:text-base font-defante">
+                Created realistic mockups to showcase how the new designs would look on soap packaging and other materials.
+              </p>
             </div>
           </motion.div>
         </div>

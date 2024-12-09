@@ -39,8 +39,8 @@ const portfolioItems = [
   },
   {
     id: 4,
-    title: 'TNT Hay Branding',
-    description: 'Rustic and bold branding for TNT Hay, a family-run business with a rich agricultural heritage.',
+    title: 'Fiorino Ad Concept Poster',
+    description: 'Fiorino: Crafting a fresh brand identity for the cans and developing a vibrant ad concept to bring the product to life.',
     image: tnthay,
     link: '/project-4',
   },
