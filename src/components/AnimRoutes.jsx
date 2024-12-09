@@ -8,6 +8,7 @@ import About from '../pages/About';
 import Portfolio from '../pages/Portfolio';
 import Contact from '../pages/Contact';
 import Project1 from '../pages/Project1';
+import Project2 from '../pages/Project2'; // Import the new Project2 component
 
 // Importing the layout that wraps all pages
 import Layout from './Layout';
@@ -27,6 +28,7 @@ const AnimRoutes = () => {
           <Route path="portfolio" element={<Portfolio />} /> {/* Portfolio page */}
           <Route path="contact" element={<Contact />} /> {/* Contact page */}
           <Route path="project-1" element={<Project1 />} /> {/* Specific project page */}
+          <Route path="project-2" element={<Project2 />} /> {/* Project 2 page */}
         </Route>
       </Routes>
     </AnimatePresence>

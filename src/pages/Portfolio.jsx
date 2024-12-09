@@ -28,14 +28,14 @@ const portfolioItems = [
     title: 'More Cookies Branding',
     description: 'Fun and quirky branding for More Cookies, a business specializing in customizable cookies for every occasion.',
     image: morecookies,
-    link: '/project-2',
+    link: '/project-3',
   },
   {
     id: 3,
     title: 'Cove Coffee Shop Branding',
     description: 'Sleek and modern branding for Cove Coffee Shop, aiming to attract a youthful, energetic clientele.',
     image: covecoffee,
-    link: '/project-3',
+    link: '/project-2',
   },
   {
     id: 4,
