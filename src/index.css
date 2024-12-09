@@ -41,4 +41,17 @@ body {
   margin: 0;
  
 }
+.conveyor {
+  display: flex;
+  animation: scroll 15s linear infinite; /* Infinite, seamless scrolling */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0); /* Start at the original position */
+  }
+  100% {
+    transform: translateX(-50%); /* Scroll halfway through (covers one set of images) */
+  }
+}
 
