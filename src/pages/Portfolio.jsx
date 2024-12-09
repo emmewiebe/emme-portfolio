@@ -10,10 +10,9 @@ import covecoffee from '../img/portfolio/covecoffee.png';
 import tnthay from '../img/portfolio/tnthay.png';
 
 // Import your poster images for the conveyor belt
-import poster1 from '../img/portfolio/covecoffee.png';
-import poster2 from '../img/portfolio/covecoffee.png';
-import poster3 from '../img/portfolio/covecoffee.png';
-import poster4 from '../img/portfolio/covecoffee.png';
+import poster2 from '../img/portfolio/gameday.png';
+import poster3 from '../img/about/cove-logo.png';
+import poster4 from '../img/about/cove-mockup5.png';
 
 const portfolioItems = [
   {
