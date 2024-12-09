@@ -1,55 +1,56 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Socials from './Socials.jsx';
-import Logo from '../img/header/logo.png';
-import MobileNav from './MobileNav.jsx';
+import { Link } from 'react-router-dom'; // For navigation links
+import Socials from './Socials.jsx'; // Social media icons
+import Logo from '../img/header/logo.png'; // Logo for the header
+import MobileNav from './MobileNav.jsx'; // Mobile navigation menu
 
 const Header = () => {
   return (
     <header className="fixed w-full px-[15px] lg:px-[50px] z-50 h-[80px] lg:h-[100px] flex items-center bg-white shadow-md">
       <div className="flex flex-row items-center w-full justify-between">
-        {/* Logo */}
+        {/* Logo: Links back to the homepage */}
         <Link to="/" className="max-w-[100px]">
           <img
-            src={Logo}
-            alt="Company Logo"
-            className="w-[80px] lg:w-[100px]" // Smaller logo size
+            src={Logo} // Logo image source
+            alt="Company Logo" // Alt text for accessibility
+            className="w-[80px] lg:w-[100px]" // Logo size adjustments for different screen sizes
           />
         </Link>
 
-        {/* Navigation: Hidden on mobile, visible on desktop */}
+        {/* Desktop Navigation: Hidden on mobile */}
         <nav className="hidden lg:flex gap-x-12 font-primary text-lg">
+          {/* Navigation Links */}
           <Link
             to="/"
             className="text-[#333] hover:text-primary transition-colors duration-300"
           >
-            Home
+            Home {/* Link to the homepage */}
           </Link>
           <Link
             to="/about"
             className="text-[#333] hover:text-primary transition-colors duration-300"
           >
-            About
+            About {/* Link to the About page */}
           </Link>
           <Link
             to="/portfolio"
             className="text-[#333] hover:text-primary transition-colors duration-300"
           >
-            Portfolio
+            Portfolio {/* Link to the Portfolio page */}
           </Link>
           <Link
             to="/contact"
             className="text-[#333] hover:text-primary transition-colors duration-300"
           >
-            Contact
+            Contact {/* Link to the Contact page */}
           </Link>
         </nav>
       </div>
 
-      {/* Socials */}
+      {/* Social Media Icons */}
       <Socials />
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation: Visible only on smaller screens */}
       <MobileNav />
     </header>
   );

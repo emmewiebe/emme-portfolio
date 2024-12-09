@@ -112,5 +112,4 @@ const Portfolio = () => {
     </motion.section>
   );
 };
-
 export default Portfolio;
