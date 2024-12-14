@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion'; // Animations for smooth scrolling effects and page transformation
+import { Helmet } from 'react-helmet'; // For SEO tags and title
 import placeholder1 from '../img/about/cove-concept.png'; // Placeholder images for the project timeline
 import placeholder2 from '../img/about/cove-moodboard.png';
 import placeholder3 from '../img/about/cove-logo.png';
@@ -15,158 +16,181 @@ const Project2 = () => {
   const rotation = useTransform(scrollYProgress, [0, 1], [0, 360]); // Makes stuff spin as the user scrolls
 
   return (
-    <section className="relative bg-white pt-24 lg:pt-32">
-      {/* Scroll Down Circle Animation */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
-        <motion.div
-          style={{
-            rotate: rotation, // Rotates the circle as the user scrolls
-          }}
-          className="w-16 h-16 border-2 border-[#345363] rounded-full flex items-center justify-center relative"
-        >
-          <p
-            className="absolute text-[10px] font-bold tracking-widest text-[#345363]"
-            style={{
-              whiteSpace: 'nowrap',
-              transform: 'rotate(-90deg)', // Keeps the text upright even as the circle spins!
-            }}
-          >
-            SCROLL DOWN · SCROLL DOWN · SCROLL DOWN ·
-          </p>
-        </motion.div>
-      </div>
+    <>
+      {/* SEO Helmet */}
+      <Helmet>
+        <title>Cove Coffee Branding Project by Emme Drew</title>
+        <meta
+          name="description"
+          content="Dive into Emme Drew's branding project for Cove Coffee, featuring a fresh, youthful aesthetic. Explore concept creation, moodboards, logo design, brand guidelines, and mockups."
+        />
+        <meta
+          name="keywords"
+          content="Cove Coffee, Emme Drew, branding, coffee shop branding, logo design, brand guidelines, moodboard, modern coffee brand"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Cove Coffee Branding Project" />
+        <meta
+          property="og:description"
+          content="See how Emme Drew crafted a modern, youthful brand identity for Cove Coffee with a bold logo, cohesive brand guidelines, and vibrant mockups."
+        />
+        <meta property="og:image" content={mockup3} />
+        <meta property="og:type" content="website" />
+      </Helmet>
 
-      {/* Header Section */}
-      <div className="bg-[#eef7f9] py-16 text-center">
-        <h1 className="text-4xl lg:text-5xl font-hemis text-[#345363] mb-4">
-          Cove Coffee Branding
-        </h1>
-        <p className="text-gray-600 text-base lg:text-lg font-defante max-w-2xl mx-auto">
-          A branding project for a modern coffee shop. The goal: design a clean, youthful aesthetic that appeals to a vibrant audience.
-        </p>
-      </div>
-
-      {/* Timeline Section */}
-      <div className="container mx-auto px-4 lg:px-16 py-12 relative">
-        {/* Vertical Line for Timeline */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-gray-300 z-10">
+      <section className="relative bg-white pt-24 lg:pt-32">
+        {/* Scroll Down Circle Animation */}
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
           <motion.div
             style={{
-              height: useTransform(scrollYProgress, [0, 1], ['0%', '100%']), // Fills the line as the user scrolls
+              rotate: rotation, // Rotates the circle as the user scrolls
             }}
-            className="bg-[#345363] w-full absolute top-0"
-          ></motion.div>
+            className="w-16 h-16 border-2 border-[#345363] rounded-full flex items-center justify-center relative"
+          >
+            <p
+              className="absolute text-[10px] font-bold tracking-widest text-[#345363]"
+              style={{
+                whiteSpace: 'nowrap',
+                transform: 'rotate(-90deg)', // Keeps the text upright even as the circle spins!
+              }}
+            >
+              SCROLL DOWN · SCROLL DOWN · SCROLL DOWN ·
+            </p>
+          </motion.div>
         </div>
 
-        {/* Timeline Items */}
-        <div className="flex flex-col gap-16 relative z-20">
-          {/* Item 1: Concept Creation */}
-          <motion.div
-            initial={{ opacity: 0, x: -100 }} // Slide in from the left
-            whileInView={{ opacity: 1, x: 0 }} // Becomes visible when scrolled into view
-            transition={{ duration: 0.6 }}
-            className="flex items-center lg:justify-end gap-4 lg:gap-8 relative"
-          >
-            <div className="w-1/3">
-              <img
-                src={placeholder1}
-                alt="Concept Creation"
-                className="rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="w-2/5 text-left lg:ml-8">
-              <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
-                Concept Creation
-              </h2>
-              <p className="text-gray-600 text-sm lg:text-base font-defante">
-                Worked on the initial concept of the brand, focusing on creating a fresh, modern identity for the coffee shop.
-              </p>
-            </div>
-          </motion.div>
+        {/* Header Section */}
+        <div className="bg-[#eef7f9] py-16 text-center">
+          <h1 className="text-4xl lg:text-5xl font-hemis text-[#345363] mb-4">
+            Cove Coffee Branding
+          </h1>
+          <p className="text-gray-600 text-base lg:text-lg font-defante max-w-2xl mx-auto">
+            A branding project for a modern coffee shop. The goal: design a clean, youthful aesthetic that appeals to a vibrant audience.
+          </p>
+        </div>
 
-          {/* Item 2: Moodboard Development */}
-          <motion.div
-            initial={{ opacity: 0, x: 100 }} // Slide in from the right
-            whileInView={{ opacity: 1, x: 0 }} // Becomes visible when scrolled into view
-            transition={{ duration: 0.6 }}
-            className="flex items-center lg:justify-start gap-4 lg:gap-8 relative"
-          >
-            <div className="w-2/5 text-right lg:mr-8">
-              <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
-                Moodboard Development
-              </h2>
-              <p className="text-gray-600 text-sm lg:text-base font-defante">
-                Crafted moodboards to capture the overall vibe. The client selected a sleek and energetic theme.
-              </p>
-            </div>
-            <div className="w-1/3">
-              <img
-                src={placeholder2}
-                alt="Moodboard Development"
-                className="rounded-lg shadow-lg"
-              />
-            </div>
-          </motion.div>
+        {/* Timeline Section */}
+        <div className="container mx-auto px-4 lg:px-16 py-12 relative">
+          {/* Vertical Line for Timeline */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-gray-300 z-10">
+            <motion.div
+              style={{
+                height: useTransform(scrollYProgress, [0, 1], ['0%', '100%']), // Fills the line as the user scrolls
+              }}
+              className="bg-[#345363] w-full absolute top-0"
+            ></motion.div>
+          </div>
 
-          {/* Item 3: Logo Design */}
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center lg:justify-end gap-4 lg:gap-8 relative"
-          >
-            <div className="w-1/3">
-              <img
-                src={placeholder3}
-                alt="Logo Design"
-                className="rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="w-2/5 text-left lg:ml-8">
-              <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
-                Logo Design
-              </h2>
-              <p className="text-gray-600 text-sm lg:text-base font-defante">
-                Designed a modern logo with clean lines and bold text to reflect the youthful energy of the brand.
-              </p>
-            </div>
-          </motion.div>
+          {/* Timeline Items */}
+          <div className="flex flex-col gap-16 relative z-20">
+            {/* Item 1: Concept Creation */}
+            <motion.div
+              initial={{ opacity: 0, x: -100 }} // Slide in from the left
+              whileInView={{ opacity: 1, x: 0 }} // Becomes visible when scrolled into view
+              transition={{ duration: 0.6 }}
+              className="flex items-center lg:justify-end gap-4 lg:gap-8 relative"
+            >
+              <div className="w-1/3">
+                <img
+                  src={placeholder1}
+                  alt="Concept sketches and imagery for Cove Coffee’s initial brand direction"
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="w-2/5 text-left lg:ml-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
+                  Concept Creation
+                </h2>
+                <p className="text-gray-600 text-sm lg:text-base font-defante">
+                  Worked on the initial concept of the brand, focusing on creating a fresh, modern identity for the coffee shop.
+                </p>
+              </div>
+            </motion.div>
 
-          {/* Item 4: Brand Guidelines */}
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center lg:justify-start gap-4 lg:gap-8 relative"
-          >
-            <div className="w-2/5 text-right lg:mr-8">
-              <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
-                Brand Guidelines
-              </h2>
-              <p className="text-gray-600 text-sm lg:text-base font-defante">
-                Developed guidelines for consistent branding across all platforms, including fonts, colors, and logo placement.
-              </p>
-            </div>
-            <div className="w-1/3">
-              <img
-                src={placeholder4}
-                alt="Brand Guidelines"
-                className="rounded-lg shadow-lg"
-              />
-            </div>
-          </motion.div>
+            {/* Item 2: Moodboard Development */}
+            <motion.div
+              initial={{ opacity: 0, x: 100 }} // Slide in from the right
+              whileInView={{ opacity: 1, x: 0 }} // Becomes visible when scrolled into view
+              transition={{ duration: 0.6 }}
+              className="flex items-center lg:justify-start gap-4 lg:gap-8 relative"
+            >
+              <div className="w-2/5 text-right lg:mr-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
+                  Moodboard Development
+                </h2>
+                <p className="text-gray-600 text-sm lg:text-base font-defante">
+                  Crafted moodboards to capture the overall vibe. The client selected a sleek and energetic theme.
+                </p>
+              </div>
+              <div className="w-1/3">
+                <img
+                  src={placeholder2}
+                  alt="Moodboard showcasing bright, energetic colors and modern design elements"
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
+            </motion.div>
 
-          {/* Item 5: Mockups */}
-          <div className="flex flex-wrap justify-center gap-8 mt-16">
-            <img src={mockup1} alt="Mockup 1" className="rounded-lg shadow-lg max-w-[300px]" />
-            <img src={mockup2} alt="Mockup 2" className="rounded-lg shadow-lg max-w-[300px]" />
-            <img src={mockup3} alt="Mockup 3" className="rounded-lg shadow-lg max-w-[300px]" />
-            <img src={mockup4} alt="Mockup 4" className="rounded-lg shadow-lg max-w-[300px]" />
-            <img src={mockup5} alt="Mockup 5" className="rounded-lg shadow-lg max-w-[300px]" />
+            {/* Item 3: Logo Design */}
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center lg:justify-end gap-4 lg:gap-8 relative"
+            >
+              <div className="w-1/3">
+                <img
+                  src={placeholder3}
+                  alt="Cove Coffee’s final logo design with bold, clean typography"
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="w-2/5 text-left lg:ml-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
+                  Logo Design
+                </h2>
+                <p className="text-gray-600 text-sm lg:text-base font-defante">
+                  Designed a modern logo with clean lines and bold text to reflect the youthful energy of the brand.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Item 4: Brand Guidelines */}
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center lg:justify-start gap-4 lg:gap-8 relative"
+            >
+              <div className="w-2/5 text-right lg:mr-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-[#345363]">
+                  Brand Guidelines
+                </h2>
+                <p className="text-gray-600 text-sm lg:text-base font-defante">
+                  Developed guidelines for consistent branding across all platforms, including fonts, colors, and logo placement.
+                </p>
+              </div>
+              <div className="w-1/3">
+                <img
+                  src={placeholder4}
+                  alt="Brand guideline document with color palettes, typography, and logo usage for Cove Coffee"
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
+            </motion.div>
+
+            {/* Item 5: Mockups */}
+            <div className="flex flex-wrap justify-center gap-8 mt-16">
+              <img src={mockup1} alt="Cove Coffee cup mockup with new logo and colors" className="rounded-lg shadow-lg max-w-[300px]" />
+              <img src={mockup2} alt="Menu board mockup featuring Cove Coffee’s branding" className="rounded-lg shadow-lg max-w-[300px]" />
+              <img src={mockup3} alt="Coffee sleeve mockup showing the modern logo design" className="rounded-lg shadow-lg max-w-[300px]" />
+              <img src={mockup4} alt="Outdoor signage mockup incorporating Cove Coffee brand elements" className="rounded-lg shadow-lg max-w-[300px]" />
+              <img src={mockup5} alt="Merchandise mockup, such as tote bags or apparel, using the updated brand identity" className="rounded-lg shadow-lg max-w-[300px]" />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
